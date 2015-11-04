@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="iso-8859-1">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    <!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.10.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      div.full {
+        width: 630px;
+        height: 300px;
+      }
+    </style>
+    <script src="http://openlayers.org/en/v3.10.1/build/ol.js" type="text/javascript"></script>
+    <title>Gr06 - Übersichtskarte</title>
+  </head>
+  <body>
+  <div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <h1><a href="index.html">Geoweb 2015</a></h1>
+      <h2>Gruppe 06</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="projekt/index.htm">Projekt</a></li>
+        <li><a href="team/index.htm">Team</a></li>
+        <li><a href="kontakt/index.htm">Kontakt</a></li>
+        <li><a href="intranet/index.htm">Intranet</a></li>
+        <li class="last"><a href="impressum/index.htm">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- Slider -->
+    <section id="slider" class="clear">
+      <figure>
+        <figcaption>
+          <h2>Übersicht</h2>
+          <p>In der Übersichtskarte finden Sie 2 wunderschöne Orte in Österreich, Ebensee und Deutsch-Wagram. Sie beide sind in raumplanerischer Hinsicht besonders interessant, weswegen sie hier markiert werden sollen. Des Weiteren ist der Traunsee als exemplarisches Beispiel Salzkammerguter Seenkultur vermerkt.</p>
+        </figcaption><div id="map" class="full">
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.MapQuest({layer: 'sat'})
+          }),
+          new ol.layer.Vector({
+            source: new ol.source.Vector({
+            format: new ol.format.GeoJSON(),
+            url: 'https://gist.githubusercontent.com/anonymous/cb973e3a2f2cfd44da23/raw/69708a91337ab39e0c4cfb0bfb0ca1375fdafa4a/map.geojson'
+            })
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([15.15, 48.13]),
+          zoom: 8
+        })
+      });
+    </script></div>
+
+      </figure>
+    </section>
+
+
+
+    
+  </body>
+</html>
